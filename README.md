@@ -43,6 +43,6 @@ They are as follows:
 | PUT       | Updates or replaces the given record                 | 200, 204 | 404      |
 | PATCH     | Modifies the given record                            | 200, 204 | 404      |
 | DELETE    | Deletes the given resource                           | 200      | 404      |
-| OPTIONS   | Fetches all available REST operations                | 200      | -        |
+| OPTIONS   | Fetches all available REST operations.                | 200      | -        |
 
 > The numbers in the Success and Failure columns of the preceding table are HTTP status codes.
