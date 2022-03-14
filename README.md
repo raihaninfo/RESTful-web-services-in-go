@@ -23,3 +23,27 @@ In REST architecture, a REST Server simply provides access to resources and REST
 - **Representation of resources:** The REST API provides the uniform interface to talk to. It uses a Uniform Resource Identifier (URI) to map the resources (data). It also has the advantage of requesting a specific data format as the response. The Internet Media Type (MIME type) can tell the server that the requested resource is of that particular type.
 
 - Implementational freedom: REST is just a mechanism to define your web services. It is an architectural style that can be implemented in multiple ways. Because of this flexibility, you can create REST services in the way you wish to. Until it follows the principles of REST, your server has the freedom to choose the platform or technology.
+
+## REST verb
+
+There are quite a few REST verbs available, but six of them are used frequently.
+They are as follows:
+
+- GET
+- POST
+- PUT
+- PATCH
+- DELETE
+- OPTIONS
+
+| REST Verb | Action                                               | Success  | Failure  |
+| --------- | ---------------------------------------------------- | -------- | -------- |
+| GET       | Fetches a record or set of resources from the server | 200      | 404      |
+| POST      | Creates a new set of resources or a resource         | 201      | 404, 409 |
+| PUT       | Updates or replaces the given record                 | 200, 204 | 404      |
+| PATCH     | Modifies the given record                            | 200, 204 | 404      |
+| DELETE    | Deletes the given resource                           | 200      | 404      |
+| OPTIONS   | Fetches all available REST operations                | 200      | -        |
+
+
+
