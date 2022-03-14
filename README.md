@@ -6,7 +6,7 @@ REST stands for `REpresentational State Transfer.` REST is web standards based a
 
 In REST architecture, a REST Server simply provides access to resources and REST client accesses and modifies the resources. Here each resource is identified by URIs/ global IDs. REST uses various representation to represent a resource like text, JSON, XML. JSON is the most popular one.
 
-## Characteristics of REST services
+## Characteristics of REST services.
 
 ### These are the main properties that make REST simple and unique compared to its predecessors:
 
@@ -43,6 +43,6 @@ They are as follows:
 | PUT       | Updates or replaces the given record                 | 200, 204 | 404      |
 | PATCH     | Modifies the given record                            | 200, 204 | 404      |
 | DELETE    | Deletes the given resource                           | 200      | 404      |
-| OPTIONS   | Fetches all available REST operations.                | 200      | -        |
+| OPTIONS   | Fetches all available REST operations.               | 200      | -        |
 
 > The numbers in the Success and Failure columns of the preceding table are HTTP status codes.
