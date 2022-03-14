@@ -45,5 +45,4 @@ They are as follows:
 | DELETE    | Deletes the given resource                           | 200      | 404      |
 | OPTIONS   | Fetches all available REST operations                | 200      | -        |
 
-
-
+> The numbers in the Success and Failure columns of the preceding table are HTTP status codes.
