@@ -42,7 +42,21 @@ func getCarById(w http.ResponseWriter, r *http.Request) {
 }
 
 func updateCars(w http.ResponseWriter, r *http.Request) {
-
+	vars := mux.Vars(r)
+	carId, err := strconv.Atoi(vars["id"])
+	if err != nil {
+		fmt.Println(err)
+	}
+	var updateCars Vehicle
+	json.NewDecoder(r.Body).Decode(&updateCars)
+	for k, v := range vehicle {
+		if v.Id == carId {
+			vehicle = append(vehicle[:k], vehicle[k+1:]...)
+			vehicle = append(vehicle, updateCars)
+		}
+	}
+	json.NewEncoder(w).Encode(vehicle)
+	w.WriteHeader(http.StatusOK)
 }
 
 func addCars(w http.ResponseWriter, r *http.Request) {
