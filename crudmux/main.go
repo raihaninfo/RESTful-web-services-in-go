@@ -49,11 +49,22 @@ func addCars(w http.ResponseWriter, r *http.Request) {
 	var newCar Vehicle
 	json.NewDecoder(r.Body).Decode(&newCar)
 	vehicle = append(vehicle, newCar)
-	w.WriteHeader(http.StatusOK)
+	w.WriteHeader(http.StatusCreated)
 	json.NewEncoder(w).Encode(vehicle)
 }
 func deleteCars(w http.ResponseWriter, r *http.Request) {
-
+	vars := mux.Vars(r)
+	carId, err := strconv.Atoi(vars["id"])
+	if err != nil {
+		fmt.Println(err)
+	}
+	for k, v := range vehicle {
+		if v.Id == carId {
+			vehicle = append(vehicle[:k], vehicle[k+1:]...)
+		}
+	}
+	w.WriteHeader(http.StatusOK)
+	json.NewEncoder(w).Encode(vehicle)
 }
 
 func main() {
