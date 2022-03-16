@@ -27,7 +27,7 @@ func allCars(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(vehicle)
 }
 
-func allCarsById(w http.ResponseWriter, r *http.Request) {
+func getCarById(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	carId, err := strconv.Atoi(vars["id"])
 	if err != nil {
@@ -46,7 +46,11 @@ func updateCars(w http.ResponseWriter, r *http.Request) {
 }
 
 func addCars(w http.ResponseWriter, r *http.Request) {
-
+	var newCar Vehicle
+	json.NewDecoder(r.Body).Decode(&newCar)
+	vehicle = append(vehicle, newCar)
+	w.WriteHeader(http.StatusOK)
+	json.NewEncoder(w).Encode(vehicle)
 }
 func deleteCars(w http.ResponseWriter, r *http.Request) {
 
@@ -56,7 +60,7 @@ func main() {
 	router := mux.NewRouter().StrictSlash(true)
 
 	router.HandleFunc("/cars", allCars).Methods("GET")
-	router.HandleFunc("/cars/{id}", allCarsById).Methods("GET")
+	router.HandleFunc("/cars/{id}", getCarById).Methods("GET")
 	router.HandleFunc("/cars/{id}", updateCars).Methods("PUT")
 	router.HandleFunc("/cars", addCars).Methods("POST")
 	router.HandleFunc("/cars/{id}", deleteCars).Methods("DELETE")
