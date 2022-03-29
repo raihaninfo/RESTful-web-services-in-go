@@ -8,11 +8,8 @@
 
 ## What is middleware?
 
-Middleware is an entity that hooks into a server's request/response processing. The
-middleware can be defined in many components. Each component has a specific function to
-perform. Whenever we define the handlers for our URL patterns the
-request hits the handler and executes the business logic. So virtually all middleware should
-perform these functions in order:
+Middleware is an entity that hooks into a server's request/response processing. The middleware can be defined in many components. Each component has a specific function to
+perform. Whenever we define the handlers for our URL patterns the request hits the handler and executes the business logic. So virtually all middleware should perform these functions in order:
 
 1. Process the request before hitting the handler (function)
 2. Process the handler function
