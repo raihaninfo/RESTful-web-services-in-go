@@ -30,6 +30,7 @@ func main() {
 			w.Write([]byte("400 - Bad request"))
 		}
 	})
+	
 	// Create a server and run it on 8000 port
 	s := &http.Server{
 		Addr:           ":8002",
